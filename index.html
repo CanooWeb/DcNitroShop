@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Klicke den Link</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div id="bg-symbols"></div>
+  <div id="landing">
+    <h1>Canoo Shop</h1>
+    <p>Willst du weiter zum Shop?</p>
+    <button id="startLink" class="link">Zum Shop</button>
+  </div>
+
+  <div id="scare" class="hidden">
+    <img src="images.jpg" onerror="this.onerror=null;this.src='scareface.svg';" alt="" class="face" id="face">
+    <div class="ipText ipTextLeft">IP GOT GRABBED</div>
+    <div class="ipText ipTextRight">IP GOT GRABBED</div>
+    <div id="visitorIp" class="hidden">IP: wird ermittelt...</div>
+    <div id="scaredBy" class="hidden">SCARED BY CAN</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

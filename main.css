@@ -1,0 +1,262 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0b0b10;
+  color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#landing {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+  }
+
+  .link {
+    font-size: 1.3rem;
+    padding: 0.8em 1.6em;
+    width: 100%;
+  }
+}
+
+#bg-symbols {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#bg-symbols span {
+  position: absolute;
+  font-size: 28px;
+  color: #7289da;
+  opacity: 0;
+  transition: opacity 0.5s;
+  text-shadow: 0 0 12px rgba(114, 137, 218, 0.9), 0 0 25px rgba(235, 69, 158, 0.5);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 0.6rem;
+  background: linear-gradient(90deg, #5865f2, #eb459e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-weight: 900;
+  filter: drop-shadow(0 0 12px rgba(114, 137, 218, 0.8)) drop-shadow(0 0 25px rgba(235, 69, 158, 0.6));
+}
+
+p {
+  margin-bottom: 1.4rem;
+  opacity: 0.8;
+}
+
+.link {
+  color: #ffd166;
+  font-size: 1.5rem;
+  text-decoration: underline;
+  cursor: pointer;
+  background: #7b2ff7;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 0.6em 1.4em;
+  box-shadow: 0 0 15px #7b2ff7;
+}
+
+#scare {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  z-index: 100;
+  cursor: none;
+}
+
+.ipText {
+  position: absolute;
+  top: 40%;
+  font-size: 9vw;
+  font-weight: 900;
+  font-family: Arial, sans-serif;
+  color: #ff0000;
+  text-shadow: 3px 3px 0 #000, 0 0 30px #000;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.ipTextLeft {
+  left: 0;
+  animation: scrollLeft 3s linear infinite;
+}
+
+.ipTextRight {
+  right: 0;
+  animation: scrollRight 3s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100vw);
+  }
+}
+
+#visitorIp {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: Courier New, monospace;
+  font-size: 5vw;
+  font-weight: bold;
+  color: #ff0000;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.4em 1em;
+  border: 3px solid #ff0000;
+  border-radius: 12px;
+  white-space: nowrap;
+  z-index: 3;
+}
+
+#scaredBy {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: Arial, sans-serif;
+  font-size: 6vw;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: #fff;
+  text-shadow: 3px 3px 0 #000, 0 0 30px #ff0000;
+  white-space: nowrap;
+}
+
+.face {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.zoomed {
+  animation: zoom 0.25s ease-out;
+}
+
+.flicker {
+  animation: flicker 0.06s infinite;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#scare.strobe {
+  animation: strobe 0.12s infinite;
+}
+
+#scare.strobe img {
+  animation: jitter 0.1s infinite;
+}
+
+@keyframes strobe {
+  0% {
+    filter: none;
+  }
+  20% {
+    filter: brightness(1.6);
+  }
+  40% {
+    filter: brightness(0.7) hue-rotate(20deg);
+  }
+  60% {
+    filter: brightness(1.2);
+  }
+  80% {
+    filter: brightness(0.8) hue-rotate(-20deg);
+  }
+  100% {
+    filter: none;
+  }
+}
+
+@keyframes jitter {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.04) rotate(-1deg);
+  }
+  50% {
+    transform: scale(0.97) rotate(1deg);
+  }
+  75% {
+    transform: scale(1.06) rotate(-0.5deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
